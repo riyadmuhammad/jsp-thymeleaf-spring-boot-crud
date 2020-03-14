@@ -1,0 +1,20 @@
+/hrm/target/
+hrm/nbactions.xml
+/hrm/.idea
+/hrm/bin/target/
+
+
+**/.project
+**/.classpath
+**/.settings/
+**/.tern-project
+*.class
+
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+/hrm/.idea
+/hrm/bin/target/
