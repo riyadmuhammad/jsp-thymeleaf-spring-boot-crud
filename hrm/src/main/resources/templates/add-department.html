@@ -17,21 +17,24 @@
               
                 <div class="col-md-10">
                 
-                  <div class="col-md-6 mt-5">
+                 <div class="col-md-6 mt-5">
+                 
+                      <a href="/department" class="btn btn-primary"> Add Department </a>
+                      
+                      <a href="/showdept" class="btn btn-primary"> Department List </a>
                  
                       <a href="/show-employee-input" class="btn btn-primary">Add Employee</a>
                       
                       <a href="/show-employee-list" class="btn btn-primary">Employee List</a>
                       
-                      <a href="/department" class="btn btn-primary"> Add Department </a>
                       
-                      <a href="/showdept" class="btn btn-primary"> Department List </a>
-                
-                  </div>
                 
                 </div>
                 
-           </div>
+                </div>
+                
+                </div>
+                
     
     <div class="container my-5">
     
@@ -53,10 +56,11 @@
                                 <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}" class="text-danger"></span>
                             </div>
                         </div>
+                        
                         <div class="row">
                         
-                        <div class="col-md-6 mt-5">
-                              <a href="/showdept" class="btn btn-primary"> Department List </a>
+                         <div class="col-md-6 mt-5" th:text="${msg}" style="color: red">
+                            
                          </div>
                             
                             <div class="col-md-6 mt-5">

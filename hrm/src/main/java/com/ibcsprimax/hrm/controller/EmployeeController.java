@@ -44,14 +44,22 @@ public class EmployeeController {
 	
 
 	@PostMapping("/adddepartment")
-    public String addDept(@Valid DepartmentCreateRequest dept, BindingResult result, Model model) {
+    public String addDept(@Valid @ModelAttribute("dept") DepartmentCreateRequest dept, BindingResult result, Model model) {
 		
 		if (result.hasErrors()) {
 			model.addAttribute("dept", dept);
             return "add-department";
         }
 		
-		hrmService.addDepartment(dept);
+		BaseResponse baseResponse= hrmService.addDepartment(dept);
+		
+		if(baseResponse.getMessageType()==0) {
+			model.addAttribute("dept", dept);
+			model.addAttribute("msg",baseResponse.getMessage());
+            return "add-department";
+			
+		}
+		
 		model.addAttribute("deptlist",hrmService.departmentList().getItem());
         return "redirect:/showdept";
     }
@@ -73,16 +81,22 @@ public class EmployeeController {
     }
 	
 	@PostMapping("/update/department")
-    public String updateDepartment(@Valid DepartmentUpdateRequest dept, BindingResult result,  Model model) {
+    public String updateDepartment(@Valid @ModelAttribute("dept") DepartmentUpdateRequest dept, BindingResult result,  Model model) {
 		
 		
 		if (result.hasErrors()) {
-			model.addAttribute("dept",dept);
-            return "redirect:/department/edit/"+dept.getId()+"";
+			model.addAttribute("dept", dept);
+            return "edit-department";
         }
 		
 		
-        hrmService.updateDepartment(dept);
+        BaseResponse baseResponse=hrmService.updateDepartment(dept);
+        if(baseResponse.getMessageType()==0) {
+			model.addAttribute("dept", dept);
+			model.addAttribute("msg",baseResponse.getMessage());
+            return "edit-department";
+			
+		}
 		
 		return "redirect:/showdept";
     }
