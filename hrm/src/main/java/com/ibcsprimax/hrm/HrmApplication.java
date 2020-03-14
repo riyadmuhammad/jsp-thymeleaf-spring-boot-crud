@@ -11,18 +11,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-/*
- * @EnableAutoConfiguration
- * 
- * @ComponentScan(basePackages={"com.erp.hrm"})
- * 
- * @EnableJpaRepositories(basePackages="com.erp.hrm.repository")
- * 
- * @EnableTransactionManagement
- * 
- * @EntityScan(basePackages="com.erp.hrm.entity")
- */
-
 @SpringBootApplication
 public class HrmApplication {
 
